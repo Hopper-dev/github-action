@@ -12,6 +12,14 @@ runs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ inputs.python-version }}
+    - name: Check ls
+      run: ls -la
+      shell: bash
+
+    - name: Check pwd
+      run: pwd
+      shell: bash
+
     - name: Install dependencies
       run: pip install -r requirements.txt
       shell: bash
