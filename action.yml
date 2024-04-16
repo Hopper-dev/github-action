@@ -1,5 +1,20 @@
-name: 'Download Binary'
-description: 'Downloads a binary from a specified URL, with optional parameters.'
+name: 'Run Python Script'
+description: 'This action executes a Python script.'
+inputs:
+  python-version:
+    description: 'Python version to use'
+    required: false
+    default: '3.11'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      shell: bash
+    - name: Run script
+      run: python main.py
+      shell: bash
