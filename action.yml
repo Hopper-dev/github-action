@@ -1,5 +1,9 @@
 name: 'Run Python Script'
 description: 'This action executes a Python script.'
+inputs:
+  secretKey:
+    description: 'Secret key for processing'
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -14,4 +18,4 @@ runs:
       run: chmod +x ./action-repo/hello-linux && ./action-repo/hello-linux "${{ github.workspace }}"
       shell: bash
       env:
-        SECRET_KEY: ${{ secrets.SECRET_NAME }}
+        SECRET_KEY: ${{ inputs.secretKey }}
