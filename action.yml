@@ -16,7 +16,7 @@ runs:
         path: 'action-repo'
 
     - name: Check for compiled artifact
-      run: ls -l ../target
+      run: ls -l target
       shell: bash
 
     - name: Install dependencies
