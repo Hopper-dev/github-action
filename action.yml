@@ -13,3 +13,5 @@ runs:
     - name: Run script
       run: chmod +x ./action-repo/hello-linux && ./action-repo/hello-linux "${{ github.workspace }}"
       shell: bash
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_NAME }}
