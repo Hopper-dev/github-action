@@ -1,17 +1,20 @@
 name: 'Run Python Script'
 description: 'This action executes a Python script.'
-inputs:
-  python-version:
-    description: 'Python version to use'
-    required: false
-    default: '3.11'
 runs:
   using: 'composite'
   steps:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ inputs.python-version }}
+        python-version: 3.11
+
+    - name: Checkout action repo
+      uses: actions/checkout@v2
+      with:
+        repository: 'Hopper-dev/github-action'
+        ref: 'v4.0.0'
+        path: 'action-repo'
+
     - name: Check ls
       run: ls -la
       shell: bash
