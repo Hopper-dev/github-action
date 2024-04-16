@@ -12,12 +12,8 @@ runs:
       uses: actions/checkout@v2
       with:
         repository: 'Hopper-dev/github-action'
-        ref: 'v4.0.0'
+        ref: main
         path: 'action-repo'
-
-    - name: Check ls
-      run: ls -la action-repo
-      shell: bash
 
     - name: Install dependencies
       run: pip install -r action-repo/requirements.txt
