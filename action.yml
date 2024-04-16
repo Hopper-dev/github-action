@@ -3,10 +3,10 @@ description: 'This action executes a Python script.'
 runs:
   using: 'composite'
   steps:
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.11
+#    - name: Setup Python
+#      uses: actions/setup-python@v2
+#      with:
+#        python-version: 3.11
 
     - name: Checkout action repo
       uses: actions/checkout@v2
@@ -15,10 +15,6 @@ runs:
         ref: main
         path: 'action-repo'
 
-    - name: Install dependencies
-      run: pip install -r action-repo/requirements.txt
-      shell: bash
-
     - name: Run script
-      run: python action-repo/main.py
+      run: chmod +x ./action-repo/hello-linux && ./action-repo/hello-linux
       shell: bash
