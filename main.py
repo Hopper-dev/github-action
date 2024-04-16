@@ -1,16 +1,20 @@
-# This is a sample Python script.
+import requests
+import sys
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+def download_file(url, file_path):
+    # if not url:
+    #     raise ValueError("URL is required")
+    # if not file_path:
+    #     raise ValueError("File path is required")
+    # response = requests.get(url)
+    # response.raise_for_status()
+    # with open(file_path, 'wb') as f:
+    #     f.write(response.content)
+    # print(f"Downloaded {url} to {file_path}")
+    print("in download_file!")
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print("in __main__!")
+    url = sys.argv[1] if len(sys.argv) > 1 else None
+    file_path = sys.argv[2] if len(sys.argv) > 2 else None
+    download_file(url, file_path)

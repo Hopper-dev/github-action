@@ -1,0 +1,5 @@
+name: 'Download Binary'
+description: 'Downloads a binary from a specified URL, with optional parameters.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
