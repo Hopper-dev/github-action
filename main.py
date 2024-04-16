@@ -13,4 +13,4 @@ def findAllFilesWithSuffixInDir(suffix: str, directory: str):
 
 if __name__ == '__main__':
     jar_files = findAllFilesWithSuffixInDir("*.jar", os.getcwd())
-    print(f"jar_files=[{jar_files}]")
+    print(f"jar_files={jar_files}")
