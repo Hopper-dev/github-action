@@ -15,9 +15,14 @@ runs:
         ref: main
         path: 'action-repo'
 
+    - name: Check for compiled artifact
+      run: ls -l ../target
+      shell: bash
+
     - name: Install dependencies
       run: pip install -r action-repo/requirements.txt
       shell: bash
+
     - name: Run script
       run: python action-repo/main.py
       shell: bash
