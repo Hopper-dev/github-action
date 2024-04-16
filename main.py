@@ -1,3 +1,5 @@
+import os
+
 import requests
 import sys
 
@@ -14,7 +16,7 @@ def download_file(url, file_path):
     print("in download_file!")
 
 if __name__ == '__main__':
-    print("in __main__!")
+    print(f"in __main__!, pwd is: {os.getcwd()}")
     url = sys.argv[1] if len(sys.argv) > 1 else None
     file_path = sys.argv[2] if len(sys.argv) > 2 else None
     download_file(url, file_path)
