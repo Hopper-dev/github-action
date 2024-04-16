@@ -16,15 +16,11 @@ runs:
         path: 'action-repo'
 
     - name: Check ls
-      run: ls -la
-      shell: bash
-
-    - name: Check pwd
-      run: pwd
+      run: ls -la action-repo
       shell: bash
 
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: pip install -r action-repo/requirements.txt
       shell: bash
     - name: Run script
       run: python main.py
