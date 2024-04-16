@@ -3,12 +3,7 @@ description: 'This action executes a Python script.'
 runs:
   using: 'composite'
   steps:
-#    - name: Setup Python
-#      uses: actions/setup-python@v2
-#      with:
-#        python-version: 3.11
-
-    - name: Checkout action repo
+    - name: Checkout action repo # replace it with downloading the binary from some url
       uses: actions/checkout@v2
       with:
         repository: 'Hopper-dev/github-action'
@@ -16,5 +11,5 @@ runs:
         path: 'action-repo'
 
     - name: Run script
-      run: chmod +x ./action-repo/hello-linux && ./action-repo/hello-linux
+      run: chmod +x ./action-repo/hello-linux && ./action-repo/hello-linux "${{ github.workspace }}"
       shell: bash
