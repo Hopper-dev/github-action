@@ -24,7 +24,7 @@ runs:
       shell: bash
 
     - name: Docker run
-      run: docker run $(printenv | awk -F= '{print "-e ", $1"="$2}' | xargs) my-java-app 
+      run: docker run my-java-app
       shell: bash
 
 #    - name: Run script
