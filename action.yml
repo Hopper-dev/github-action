@@ -14,8 +14,16 @@ runs:
         ref: main
         path: 'action-repo'
 
-    - name: Run script
-      run: chmod +x ./action-repo/hello-linux && ./action-repo/hello-linux "${{ github.workspace }}"
+    - name: Docker build
+      run: docker build -t my-java-app .
       shell: bash
-      env:
-        SECRET_KEY: ${{ inputs.secretKey }}
+
+    - name: Docker run
+      run: docker run -it --name my-running-app my-java-app
+      shell: bash
+
+#    - name: Run script
+#      run: chmod +x ./action-repo/hello-linux && ./action-repo/hello-linux "${{ github.workspace }}"
+#      shell: bash
+#      env:
+#        SECRET_KEY: ${{ inputs.secretKey }}
