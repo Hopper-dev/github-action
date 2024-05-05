@@ -19,6 +19,10 @@ runs:
       shell: bash
       working-directory: action-repo
 
+    - name: printenv
+      run: printenv | awk -F= '{print "-e ", $1"="$2}' | xargs
+      shell: bash
+
     - name: Docker run
       run: docker run $(printenv | awk -F= '{print "-e ", $1"="$2}' | xargs) my-java-app 
       shell: bash
