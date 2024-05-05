@@ -9,3 +9,4 @@ COPY untitled.jar /app
 
 # Run the JAR file
 ENTRYPOINT ["java", "-jar", "untitled.jar"]
+CMD []
