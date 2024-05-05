@@ -14,17 +14,10 @@ runs:
         ref: main
         path: 'action-repo'
 
-    - name: ls -la
-      run: ls -la
-      shell: bash
-
-    - name: Docker images
-      run: docker images
-      shell: bash
-
     - name: Docker build
       run: docker build -t my-java-app .
       shell: bash
+      working-directory: action-repo
 
     - name: Docker run
       run: docker run -it --name my-running-app my-java-app
