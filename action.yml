@@ -23,6 +23,20 @@ runs:
       run: printenv | awk -F= '{print "-e ", $1"="$2}' | xargs
       shell: bash
 
+    - name: Get repository ID
+      run: |
+        REPO_ID=$(curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}" | jq .id)
+        echo "REPO_ID=$REPO_ID"
+      shell: bash
+
+    - name: Extract branch name
+      run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}"
+      shell: bash
+
+    - name: Use GITHUB_SHA
+      run: echo "Current SHA is $GITHUB_SHA"
+      shell: bash
+
     - name: Docker run
       run: docker run my-java-app
       shell: bash
